@@ -8,6 +8,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "moment": "^2.24.0",
     "react": "16.8.3",
     "react-native": "^0.55.4",
     "react-timer-mixin": "^0.13.4"
