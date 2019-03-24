@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, FlatList } from 'react-native';
 import moment from 'moment';
 import 'moment/locale/pt-br';
 import todayImage from '../../assets/imgs/today.jpg';
@@ -7,6 +7,27 @@ import commonStyles from '../commomStyles'
 import Task from '../components/Task'
 
 export default class Schedule extends Component {
+
+    state = {
+        //Only for test
+        tasks: [
+            { id: Math.random(), desc: 'Aula', estimateAt: new Date(), doneAt: new Date() },
+            { id: Math.random(), desc: 'Faltar aula', estimateAt: new Date(), doneAt: null },
+            { id: Math.random(), desc: 'Aula', estimateAt: new Date(), doneAt: new Date() },
+            { id: Math.random(), desc: 'Faltar aula', estimateAt: new Date(), doneAt: null },
+            { id: Math.random(), desc: 'Aula', estimateAt: new Date(), doneAt: new Date() },
+            { id: Math.random(), desc: 'Faltar aula', estimateAt: new Date(), doneAt: null },
+            { id: Math.random(), desc: 'Aula', estimateAt: new Date(), doneAt: new Date() },
+            { id: Math.random(), desc: 'Faltar aula', estimateAt: new Date(), doneAt: null },
+            { id: Math.random(), desc: 'Aula', estimateAt: new Date(), doneAt: new Date() },
+            { id: Math.random(), desc: 'Faltar aula', estimateAt: new Date(), doneAt: null },
+            { id: Math.random(), desc: 'Aula', estimateAt: new Date(), doneAt: new Date() },
+            { id: Math.random(), desc: 'Faltar aula', estimateAt: new Date(), doneAt: null },
+            { id: Math.random(), desc: 'Aula', estimateAt: new Date(), doneAt: new Date() },
+            { id: Math.random(), desc: 'Faltar aula', estimateAt: new Date(), doneAt: null },
+        ]
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -19,8 +40,9 @@ export default class Schedule extends Component {
                     </View>
                 </ImageBackground>
                 <View style={styles.taskContainer}>
-                    <Task desc='Pending' estimateAt={new Date()} doneAt={null}/>
-                    <Task desc='Finished' estimateAt={new Date()} doneAt={new Date()}/>
+                    <FlatList data={this.state.tasks}
+                              keyExtractor={item => `${item.id}`}
+                              renderItem={({ item }) => <Task {...item} />} />
                 </View>
             </View>
         );
