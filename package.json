@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "react": "16.8.3",
-    "react-native": "0.56.1"
+    "react-native": "^0.55.4",
+    "react-timer-mixin": "^0.13.4"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
@@ -23,5 +24,10 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
   }
 }
